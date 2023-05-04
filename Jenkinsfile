@@ -2,27 +2,25 @@ pipeline {
     agent any
 
     stages {
-        stage('Clone') {
+        stage('Checkout') {
+            steps {
+                git branch: 'main', url: 'https://github.com/elavazhaganthirumalai/basicspringproject'
+            }
+        }
+    stage('Clone') {
             steps {
                 git url: 'https://github.com/elavazhaganthirumalai/basicspringproject.git'
             }
         }
-
-        stage('Checkout') {
-            steps {
-                sh 'cd repo && git checkout main'
-            }
-        }
-
         stage('Build') {
             steps {
-                sh 'cd repo && mvn clean install'
+                sh './build.mvn clean install'
             }
         }
 
-        stage('Run') {
+        stage('Deploy') {
             steps {
-                sh 'java -jar repo/target/elademo-0.0.1-SNAPSHOT.jar'
+                sh './deploy.java -jar elademo-0.0.1-SNAPSHOT.jar'
             }
         }
     }
