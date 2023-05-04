@@ -16,7 +16,7 @@ pipeline {
 
         stage('Run') {
             steps {
-                sh 'cd repo/target && java -jar basicspringproject.jar &'
+                bat 'java -jar elademo-0.0.1-SNAPSHOT.jar'
             }
         }
     }
