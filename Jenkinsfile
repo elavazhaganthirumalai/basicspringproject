@@ -16,7 +16,7 @@ pipeline {
 
         stage('Run') {
             steps {
-                bat 'java -jar C:\ProgramData\Jenkins\.jenkins\workspace\test_job\target\elademo-0.0.1-SNAPSHOT.jar'
+                sh 'cd repo/target && java -jar elademo-0.0.1-SNAPSHOT.jar &'
             }
         }
     }
