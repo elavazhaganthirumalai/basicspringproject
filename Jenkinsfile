@@ -16,7 +16,7 @@ pipeline {
 
         stage('Run') {
             steps {
-                bat 'java -jar target/elademo-0.0.1-SNAPSHOT.jar'
+                bat 'start java -jar target/elademo-0.0.1-SNAPSHOT.jar &'
             }
         }
     }
