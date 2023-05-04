@@ -20,7 +20,7 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                sh './deploy.java -jar elademo-0.0.1-SNAPSHOT.jar'
+                sh './deploy.java -jar basicspringproject-0.0.1-SNAPSHOT.jar'
             }
         }
     }
