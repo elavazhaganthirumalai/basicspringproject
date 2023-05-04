@@ -24,7 +24,7 @@ pipeline {
         }
 
         def waitForServer() {
-            def response = sh script: "curl --write-out %{http_code} --silent --output /dev/null http://localhost:8081", returnStdout: true
+            def response = bat returnStdout: true, script: 'curl --write-out %{http_code} --silent --output NUL http://localhost:8081'
             def status = response.trim()
             if (status == '200') {
                 echo 'Server is up and running!'
