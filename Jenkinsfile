@@ -3,16 +3,16 @@ pipeline {
 
     stages {
         stage('Checkout') {
-            steps {
-                git branch: 'main', url: 'https://github.com/elavazhaganthirumalai/basicspringproject'
-            }
-        }
+                    steps {
+                        git branch: 'main', url: 'https://github.com/elavazhaganthirumalai/basicspringproject'
+                    }
+                }
 
-        stage('Build') {
-            steps {
-                sh 'cd repo && ./mvn clean install'
-            }
-        }
+                stage('Build') {
+                    steps {
+                        sh './build.mvn clean install'
+                    }
+                }
 
         stage('Run') {
             steps {
