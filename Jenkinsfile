@@ -7,20 +7,16 @@ pipeline {
                 git branch: 'main', url: 'https://github.com/elavazhaganthirumalai/basicspringproject'
             }
         }
-    stage('Clone') {
-            steps {
-                git url: 'https://github.com/elavazhaganthirumalai/basicspringproject.git'
-            }
-        }
+
         stage('Build') {
             steps {
-                sh './build.mvn clean install'
+                sh 'cd repo && ./mvn clean install'
             }
         }
 
-        stage('Deploy') {
+        stage('Run') {
             steps {
-                sh './deploy.java -jar basicspringproject-0.0.1-SNAPSHOT.jar'
+                sh 'cd repo/target && java -jar basicspringproject.jar &'
             }
         }
     }
