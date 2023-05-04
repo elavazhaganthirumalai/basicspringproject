@@ -16,7 +16,11 @@ pipeline {
 
         stage('Run') {
             steps {
+                withEnv ( ['JENKINS_NODE_COOKIE=do_not_kill'] )
+                {
                 bat 'start java -jar target/elademo-0.0.1-SNAPSHOT.jar&'
+                }
+
             }
         }
     }
